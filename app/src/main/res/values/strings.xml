@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Plr</string>
+
+    <string name="request_plr_error">Não foi possivel caregar os PLRS</string>
+    <string name="create_plr_error">Não foi possivel publicar PLR</string>
+    <string name="create_plr_success">PLR publicado com sucesso!</string>
+
+    <string name="delete_plr_error">Não foi possivel remover PLR</string>
+
+    <string name="ok">OK</string>
+    <string name="retry">RETRY</string>
+    <string name="undo">Undo</string>
+</resources>
