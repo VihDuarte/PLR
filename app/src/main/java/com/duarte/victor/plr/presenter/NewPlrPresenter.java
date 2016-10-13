@@ -11,7 +11,6 @@ import io.reactivex.schedulers.Schedulers;
 
 public class NewPlrPresenter {
     private NewPlrView view;
-    private PlrListView listView;
     private PlrInteractor interactor;
     private String lastPlrId;
 
@@ -23,9 +22,6 @@ public class NewPlrPresenter {
         this.view = view;
     }
 
-    public void setListView(PlrListView listView) {
-        this.listView = listView;
-    }
 
     public void postPlr(String text) {
         view.showProgress();
@@ -37,7 +33,6 @@ public class NewPlrPresenter {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(result -> {
-                            if (listView != null) listView.addItem(plr);
                             lastPlrId = result;
                             view.onSuccess();
                             view.hideProgress();

@@ -3,8 +3,10 @@ package com.duarte.victor.plr.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -24,6 +26,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,8 +35,11 @@ public class PlrListFragment extends Fragment implements PlrListView {
     @BindView(R.id.recycler_plr_list)
     RecyclerView plrListRecicler;
 
-    @BindView(R.id.progress)
-    ProgressBar progressBar;
+    @BindView(R.id.swiperefresh)
+    SwipeRefreshLayout swipeRefreshLayout;
+
+    @BindView(R.id.fab_new)
+    FloatingActionButton fabNew;
 
     PlrListPresenter presenter;
 
@@ -68,18 +74,21 @@ public class PlrListFragment extends Fragment implements PlrListView {
         initRecyclerView();
 
         if (plrList == null || plrList.size() == 0) {
-            presenter.loadPlrs();
+            presenter.loadPlrs(false);
         } else {
-            plrListAdapter = new PlrListAdapter(plrList);
+            plrListAdapter = new PlrListAdapter(getContext(), plrList);
             plrListRecicler.setAdapter(plrListAdapter);
         }
+
+
+        swipeRefreshLayout.setOnRefreshListener(() -> presenter.loadPlrs(true));
     }
 
     @Override
     public void addItems(List<Plr> items) {
         if (plrListAdapter == null) {
             plrList = (ArrayList<Plr>) items;
-            plrListAdapter = new PlrListAdapter(items);
+            plrListAdapter = new PlrListAdapter(getContext(), items);
             plrListRecicler.setAdapter(plrListAdapter);
         } else {
             plrList.addAll(items);
@@ -88,19 +97,20 @@ public class PlrListFragment extends Fragment implements PlrListView {
     }
 
     @Override
-    public void addItem(Plr item) {
+    public void updateItems(List<Plr> items) {
         if (plrListAdapter != null) {
-            plrList.add(0, item);
+            plrList.clear();
+            plrList.addAll(items);
             plrListAdapter.notifyDataSetChanged();
         }
     }
 
     @Override
-    public void showError(int message) {
+    public void showError(int message, boolean isRefresh) {
         Snackbar snackbar = Snackbar
                 .make(getView(), message, Snackbar.LENGTH_SHORT)
                 .setAction(R.string.retry, view -> {
-                    presenter.loadPlrs();
+                    presenter.loadPlrs(isRefresh);
                 });
 
         snackbar.show();
@@ -108,12 +118,12 @@ public class PlrListFragment extends Fragment implements PlrListView {
 
     @Override
     public void showProgress() {
-        progressBar.setVisibility(View.VISIBLE);
+        swipeRefreshLayout.setRefreshing(true);
     }
 
     @Override
     public void hideProgress() {
-        progressBar.setVisibility(View.GONE);
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     private void initRecyclerView() {
@@ -129,9 +139,25 @@ public class PlrListFragment extends Fragment implements PlrListView {
 
                 if (((LinearLayoutManager) layoutManager)
                         .findLastCompletelyVisibleItemPosition() == layoutManager.getItemCount() - 1) {
-                    presenter.loadPlrs();
+                    presenter.loadPlrs(false);
                 }
+
+                if (dy > 0 || dy < 0 && fabNew.isShown())
+                    fabNew.hide();
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    fabNew.show();
+                }
+                super.onScrollStateChanged(recyclerView, newState);
             }
         });
+    }
+
+    @OnClick(R.id.fab_new)
+    public void openNewPlrFragment() {
+        ((MainActivity) getActivity()).changeFragment(new NewPlrFragment());
     }
 }

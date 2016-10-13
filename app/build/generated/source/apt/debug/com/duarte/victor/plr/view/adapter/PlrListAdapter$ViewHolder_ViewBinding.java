@@ -18,7 +18,8 @@ public class PlrListAdapter$ViewHolder_ViewBinding<T extends PlrListAdapter.View
   public PlrListAdapter$ViewHolder_ViewBinding(T target, View source) {
     this.target = target;
 
-    target.TxPlrItemText = Utils.findRequiredViewAsType(source, R.id.txt_plr_item_text, "field 'TxPlrItemText'", TextView.class);
+    target.TxtPlrItemText = Utils.findRequiredViewAsType(source, R.id.txt_plr_item_text, "field 'TxtPlrItemText'", TextView.class);
+    target.txtPlrItemDate = Utils.findRequiredViewAsType(source, R.id.txt_plr_item_date, "field 'txtPlrItemDate'", TextView.class);
   }
 
   @Override
@@ -27,7 +28,8 @@ public class PlrListAdapter$ViewHolder_ViewBinding<T extends PlrListAdapter.View
     T target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
 
-    target.TxPlrItemText = null;
+    target.TxtPlrItemText = null;
+    target.txtPlrItemDate = null;
 
     this.target = null;
   }

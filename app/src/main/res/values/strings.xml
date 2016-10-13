@@ -2,8 +2,11 @@
     <string name="app_name">Plr</string>
 
     <string name="request_plr_error">Não foi possivel caregar os PLRS</string>
+    <string name="refresh_plr_error">Não foi possivel atualizar os PLRS</string>
     <string name="create_plr_error">Não foi possivel publicar PLR</string>
     <string name="create_plr_success">PLR publicado com sucesso!</string>
+
+    <string name="create_plr_now">now</string>
 
     <string name="delete_plr_error">Não foi possivel remover PLR</string>
 

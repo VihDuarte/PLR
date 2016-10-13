@@ -47,7 +47,6 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
         setRetainInstance(true);
         presenter = new NewPlrPresenter(new PlrInteractorImpl());
         presenter.setView(this);
-        presenter.setListView((PlrListView) getActivity().getSupportFragmentManager().findFragmentById(R.id.listFragment));
     }
 
     @Override

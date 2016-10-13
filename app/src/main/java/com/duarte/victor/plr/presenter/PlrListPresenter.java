@@ -21,20 +21,27 @@ public class PlrListPresenter {
         this.view = view;
     }
 
-    public void loadPlrs() {
+    public void loadPlrs(boolean refresh) {
         if (view != null) {
             view.showProgress();
+
+            if (refresh)
+                currentPage = 0;
 
             interactor.getPlrs(currentPage++)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(result -> {
-                                view.addItems(result);
+                                if (refresh)
+                                    view.updateItems(result);
+                                else
+                                    view.addItems(result);
+
                                 view.hideProgress();
                             },
                             error -> {
                                 currentPage--;
-                                view.showError(R.string.request_plr_error);
+                                view.showError(refresh ? R.string.refresh_plr_error : R.string.request_plr_error, refresh);
                                 view.hideProgress();
                             });
         }
