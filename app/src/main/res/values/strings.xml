@@ -6,9 +6,13 @@
     <string name="create_plr_error">Não foi possivel publicar PLR</string>
     <string name="create_plr_success">PLR publicado com sucesso!</string>
 
+    <string name="required_field">campo obrigatório</string>
+
     <string name="create_plr_now">now</string>
 
     <string name="delete_plr_error">Não foi possivel remover PLR</string>
+
+    <string name="publish_button">Publicar</string>
 
     <string name="ok">OK</string>
     <string name="retry">RETRY</string>

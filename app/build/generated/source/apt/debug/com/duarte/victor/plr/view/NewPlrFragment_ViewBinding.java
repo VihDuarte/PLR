@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -26,6 +27,7 @@ public class NewPlrFragment_ViewBinding<T extends NewPlrFragment> implements Unb
     View view;
     target.progressBar = Utils.findRequiredViewAsType(source, R.id.progress, "field 'progressBar'", ProgressBar.class);
     target.edtPlrMessage = Utils.findRequiredViewAsType(source, R.id.edt_new_plr, "field 'edtPlrMessage'", EditText.class);
+    target.txtCount = Utils.findRequiredViewAsType(source, R.id.txt_count, "field 'txtCount'", TextView.class);
     view = Utils.findRequiredView(source, R.id.btn_post, "field 'btnPost' and method 'onBtnPostClick'");
     target.btnPost = Utils.castView(view, R.id.btn_post, "field 'btnPost'", Button.class);
     view2131492987 = view;
@@ -45,6 +47,7 @@ public class NewPlrFragment_ViewBinding<T extends NewPlrFragment> implements Unb
 
     target.progressBar = null;
     target.edtPlrMessage = null;
+    target.txtCount = null;
     target.btnPost = null;
 
     view2131492987.setOnClickListener(null);

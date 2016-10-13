@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#1A78C2</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorPlrText">#000</color>
+    <color name="colotBtnText">#FFF</color>
+    <color name="colorBtnDisable">#8C1A78C2</color>
     <color name="colorMainBackground">#F1F1F1</color>
 </resources>

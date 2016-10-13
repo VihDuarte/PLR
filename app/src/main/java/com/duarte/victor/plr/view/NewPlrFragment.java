@@ -1,17 +1,23 @@
 package com.duarte.victor.plr.view;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.duarte.victor.plr.R;
 import com.duarte.victor.plr.interactor.PlrInteractorImpl;
@@ -30,6 +36,9 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
 
     @BindView(R.id.edt_new_plr)
     EditText edtPlrMessage;
+
+    @BindView(R.id.txt_count)
+    TextView txtCount;
 
     @BindView(R.id.btn_post)
     Button btnPost;
@@ -58,6 +67,34 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        edtPlrMessage.requestFocus();
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.toggleSoftInputFromWindow(edtPlrMessage.getApplicationWindowToken(),
+                InputMethodManager.SHOW_FORCED, 0);
+
+
+        edtPlrMessage.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                txtCount.setText(String.valueOf(140 - s.length()));
+                btnPost.setEnabled(s.length() > 0);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
+    @Override
     public void onSuccess() {
         edtPlrMessage.setText("");
 
@@ -72,6 +109,11 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
 
     @OnClick(R.id.btn_post)
     public void onBtnPostClick() {
+        if (edtPlrMessage.getText().toString().isEmpty()) {
+            edtPlrMessage.setError(getContext().getResources().getString(R.string.required_field));
+            return;
+        }
+
         presenter.postPlr(edtPlrMessage.getText().toString());
     }
 
