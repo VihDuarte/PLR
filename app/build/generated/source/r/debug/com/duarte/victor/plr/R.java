@@ -2699,9 +2699,10 @@ containing a value of this type.
         public static final int design_fab_background=0x7f020054;
         public static final int design_ic_visibility=0x7f020055;
         public static final int design_snackbar_background=0x7f020056;
-        public static final int ic_create_white_24dp=0x7f020057;
-        public static final int navigation_empty_icon=0x7f020058;
-        public static final int notification_template_icon_bg=0x7f020059;
+        public static final int ic_clear_white_24dp=0x7f020057;
+        public static final int ic_create_white_24dp=0x7f020058;
+        public static final int navigation_empty_icon=0x7f020059;
+        public static final int notification_template_icon_bg=0x7f02005a;
     }
     public static final class id {
         public static final int action0=0x7f0c0081;
@@ -2960,14 +2961,15 @@ containing a value of this type.
         public static final int create_plr_success=0x7f060027;
         public static final int delete_plr_error=0x7f060028;
         public static final int ok=0x7f060029;
-        public static final int publish_button=0x7f06002a;
-        public static final int refresh_plr_error=0x7f06002b;
-        public static final int request_plr_error=0x7f06002c;
-        public static final int required_field=0x7f06002d;
-        public static final int retry=0x7f06002e;
+        public static final int plr_hint=0x7f06002a;
+        public static final int publish_button=0x7f06002b;
+        public static final int refresh_plr_error=0x7f06002c;
+        public static final int request_plr_error=0x7f06002d;
+        public static final int required_field=0x7f06002e;
+        public static final int retry=0x7f06002f;
         public static final int search_menu_title=0x7f060013;
         public static final int status_bar_notification_info_overflow=0x7f060014;
-        public static final int undo=0x7f06002f;
+        public static final int undo=0x7f060030;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f08008d;

@@ -50,7 +50,7 @@ public class NewPlrPresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(result -> {
                             view.hideProgress();
-                            if (result.getCode() != 200) {
+                            if (result != 1) {
                                 view.onDeleteErro(R.string.delete_plr_error);
                             }
                         },

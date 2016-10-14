@@ -69,12 +69,33 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
     @Override
     public void onResume() {
         super.onResume();
-        edtPlrMessage.requestFocus();
-        InputMethodManager inputMethodManager =
-                (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.toggleSoftInputFromWindow(edtPlrMessage.getApplicationWindowToken(),
-                InputMethodManager.SHOW_FORCED, 0);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        edtPlrMessage.requestFocus();
+
+        InputMethodManager imm = (InputMethodManager) getActivity()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInputFromWindow(edtPlrMessage.getWindowToken(),
+                InputMethodManager.SHOW_FORCED, 0);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        View view = getActivity().getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+
+
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         edtPlrMessage.addTextChangedListener(new TextWatcher() {
             @Override
@@ -145,7 +166,7 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
 
     @Override
     public void showProgress() {
-        btnPost.setVisibility(View.GONE);
+        btnPost.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
     }
 

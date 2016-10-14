@@ -67,7 +67,6 @@ public class PlrListFragment extends Fragment implements PlrListView {
         presenter.setView(this);
     }
 
-
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

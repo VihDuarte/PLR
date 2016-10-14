@@ -2,8 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
     android:background="@color/colorMainBackground"
     android:orientation="horizontal"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context="com.duarte.victor.plr.view.NewPlrFragment">
 
     <EditText
@@ -11,8 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:hint="Estou tão plr..."
-        android:maxLength="140" />
+        android:gravity="top"
+        android:hint="@string/plr_hint"
+        android:maxLength="140"
+        android:minHeight="150dp" />
 
     <View
         android:id="@+id/view_line"
@@ -25,15 +30,15 @@
         android:id="@+id/btn_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:textColor="@color/colotBtnText"
+        android:layout_below="@+id/edt_new_plr"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_weight="1"
-        android:enabled="false"
         android:background="@drawable/btn_publish_background"
-        android:text="@string/publish_button" />
+        android:enabled="false"
+        android:text="@string/publish_button"
+        android:textColor="@color/colotBtnText" />
 
     <TextView
         android:id="@+id/txt_count"
@@ -51,8 +56,10 @@
         android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_below="@+id/edt_new_plr"
         android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:visibility="gone" />
 </RelativeLayout>

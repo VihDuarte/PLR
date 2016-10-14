@@ -1,7 +1,6 @@
 package com.duarte.victor.plr.interactor;
 
 import com.duarte.victor.plr.model.Plr;
-import com.duarte.victor.plr.model.ServiceResponse;
 
 import java.util.List;
 
@@ -13,5 +12,5 @@ public interface PlrInteractor {
 
     Observable<String> postPlr(Plr plr);
 
-    Observable<ServiceResponse> deletePlr(String idPlr);
+    Observable<Integer> deletePlr(String idPlr);
 }
