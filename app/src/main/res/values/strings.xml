@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Plr... :p´</string>
+    <string name="app_name">plr</string>
 
     <string name="request_plr_error">Não foi possivel caregar os PLRS</string>
     <string name="refresh_plr_error">Não foi possivel atualizar os PLRS</string>

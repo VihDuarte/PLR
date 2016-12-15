@@ -1,4 +1,4 @@
-#Fri Oct 14 11:35:41 BRT 2016
-base.0=/home/victor/dev/android/Plr/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+#Wed Dec 14 22:20:06 BRST 2016
+base.0=/home/victor/Documents/dev/android/PLR/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
-file.0=/home/victor/dev/android/Plr/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
+file.0=/home/victor/Documents/dev/android/PLR/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

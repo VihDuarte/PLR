@@ -31,13 +31,13 @@
     <color name="cardview_light_background">#FFFFFFFF</color>
     <color name="cardview_shadow_end_color">#03000000</color>
     <color name="cardview_shadow_start_color">#37000000</color>
-    <color name="colorAccent">#2196F3</color>
+    <color name="colorAccent">#FF5252</color>
     <color name="colorBtnDisable">#8C1A78C2</color>
+    <color name="colorBtnText">#FFF</color>
     <color name="colorMainBackground">#F1F1F1</color>
     <color name="colorPlrText">#000</color>
-    <color name="colorPrimary">#2196F3</color>
-    <color name="colorPrimaryDark">#1A78C2</color>
-    <color name="colotBtnText">#FFF</color>
+    <color name="colorPrimary">#FF1744</color>
+    <color name="colorPrimaryDark">#CC1236</color>
     <color name="design_fab_shadow_end_color">@android:color/transparent</color>
     <color name="design_fab_shadow_mid_color">#14000000</color>
     <color name="design_fab_shadow_start_color">#44000000</color>
@@ -566,7 +566,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="app_name">Plr... :p´</string>
+    <string name="app_name">Plr</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
@@ -593,11 +593,11 @@
         <item name="android:windowExitAnimation">@anim/design_bottom_sheet_slide_out</item>
     </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:homeAsUpIndicator">@drawable/ic_clear_white_24dp</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_arrow_back_black_24dp</item>
     </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>

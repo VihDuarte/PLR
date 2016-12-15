@@ -38,7 +38,7 @@
         android:background="@drawable/btn_publish_background"
         android:enabled="false"
         android:text="@string/publish_button"
-        android:textColor="@color/colotBtnText" />
+        android:textColor="@color/colorBtnText" />
 
     <TextView
         android:id="@+id/txt_count"

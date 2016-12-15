@@ -2425,11 +2425,11 @@ containing a value of this type.
         public static final int cardview_shadow_start_color=0x7f0b0015;
         public static final int colorAccent=0x7f0b0016;
         public static final int colorBtnDisable=0x7f0b0017;
-        public static final int colorMainBackground=0x7f0b0018;
-        public static final int colorPlrText=0x7f0b0019;
-        public static final int colorPrimary=0x7f0b001a;
-        public static final int colorPrimaryDark=0x7f0b001b;
-        public static final int colotBtnText=0x7f0b001c;
+        public static final int colorBtnText=0x7f0b0018;
+        public static final int colorMainBackground=0x7f0b0019;
+        public static final int colorPlrText=0x7f0b001a;
+        public static final int colorPrimary=0x7f0b001b;
+        public static final int colorPrimaryDark=0x7f0b001c;
         public static final int design_error=0x7f0b0061;
         public static final int design_fab_shadow_end_color=0x7f0b001d;
         public static final int design_fab_shadow_mid_color=0x7f0b001e;
@@ -2699,10 +2699,16 @@ containing a value of this type.
         public static final int design_fab_background=0x7f020054;
         public static final int design_ic_visibility=0x7f020055;
         public static final int design_snackbar_background=0x7f020056;
-        public static final int ic_clear_white_24dp=0x7f020057;
-        public static final int ic_create_white_24dp=0x7f020058;
-        public static final int navigation_empty_icon=0x7f020059;
-        public static final int notification_template_icon_bg=0x7f02005a;
+        public static final int ic_arrow_back_black_24dp=0x7f020057;
+        public static final int ic_clear_white_24dp=0x7f020058;
+        public static final int ic_menu_black_24dp=0x7f020059;
+        public static final int ic_mode_edit_black_24dp=0x7f02005a;
+        public static final int ic_more_vert_black_24dp=0x7f02005b;
+        public static final int ic_search_black_24dp=0x7f02005c;
+        public static final int logo_feedback=0x7f02005d;
+        public static final int logo_publicacoes=0x7f02005e;
+        public static final int navigation_empty_icon=0x7f02005f;
+        public static final int notification_template_icon_bg=0x7f020060;
     }
     public static final class id {
         public static final int action0=0x7f0c0081;
