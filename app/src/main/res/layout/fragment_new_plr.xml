@@ -2,20 +2,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="@dimen/activity_vertical_margin"
-    android:background="@color/colorMainBackground"
+    android:background="@color/colorBackground"
     android:orientation="horizontal"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:padding="@dimen/activity_horizontal_margin"
     tools:context="com.duarte.victor.plr.view.NewPlrFragment">
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fitsSystemWindows="true"
+        android:layout_marginTop="@dimen/large_margin"
+        android:src="@drawable/logo_publicacoes" />
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:text="@string/create_plr_title"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/large_text" />
 
     <EditText
         android:id="@+id/edt_new_plr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/txt_title"
+        android:layout_marginTop="@dimen/large_margin"
         android:background="@android:color/transparent"
         android:gravity="top"
-        android:hint="@string/plr_hint"
         android:maxLength="140"
         android:minHeight="150dp" />
 
@@ -23,34 +42,26 @@
         android:id="@+id/view_line"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:layout_above="@+id/btn_post"
-        android:background="#000" />
+        android:layout_above="@+id/txt_count"
+        android:background="@color/colorLineView" />
+
+    <TextView
+        android:id="@+id/txt_count"
+        style="@style/IndicatorText"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/edt_new_plr"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:text="restam 140 caracteres" />
 
     <Button
         android:id="@+id/btn_post"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/edt_new_plr"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_weight="1"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/btn_publish_background"
         android:enabled="false"
         android:text="@string/publish_button"
         android:textColor="@color/colorBtnText" />
-
-    <TextView
-        android:id="@+id/txt_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btn_post"
-        android:layout_alignBottom="@+id/btn_post"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_toLeftOf="@+id/btn_post"
-        android:layout_toStartOf="@+id/btn_post"
-        android:text="140"
-        android:textSize="14sp" />
 
     <ProgressBar
         android:id="@+id/progress"

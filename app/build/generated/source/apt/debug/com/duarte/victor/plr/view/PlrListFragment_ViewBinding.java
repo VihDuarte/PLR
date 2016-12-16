@@ -17,7 +17,7 @@ import java.lang.Override;
 public class PlrListFragment_ViewBinding<T extends PlrListFragment> implements Unbinder {
   protected T target;
 
-  private View view2131492992;
+  private View view2131492995;
 
   @UiThread
   public PlrListFragment_ViewBinding(final T target, View source) {
@@ -28,7 +28,7 @@ public class PlrListFragment_ViewBinding<T extends PlrListFragment> implements U
     target.swipeRefreshLayout = Utils.findRequiredViewAsType(source, R.id.swiperefresh, "field 'swipeRefreshLayout'", SwipeRefreshLayout.class);
     view = Utils.findRequiredView(source, R.id.fab_new, "field 'fabNew' and method 'openNewPlrFragment'");
     target.fabNew = Utils.castView(view, R.id.fab_new, "field 'fabNew'", FloatingActionButton.class);
-    view2131492992 = view;
+    view2131492995 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -47,8 +47,8 @@ public class PlrListFragment_ViewBinding<T extends PlrListFragment> implements U
     target.swipeRefreshLayout = null;
     target.fabNew = null;
 
-    view2131492992.setOnClickListener(null);
-    view2131492992 = null;
+    view2131492995.setOnClickListener(null);
+    view2131492995 = null;
 
     this.target = null;
   }

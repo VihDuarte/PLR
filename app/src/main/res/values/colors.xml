@@ -3,8 +3,10 @@
     <color name="colorPrimary">#FF1744</color>
     <color name="colorPrimaryDark">#CC1236</color>
     <color name="colorAccent">#FF5252</color>
-    <color name="colorPlrText">#000</color>
+    <color name="colorPlrText">#5A5044</color>
     <color name="colorBtnText">#FFF</color>
-    <color name="colorBtnDisable">#8C1A78C2</color>
-    <color name="colorMainBackground">#F1F1F1</color>
+    <color name="colorBtnDisable">#8CFF5252</color>
+    <color name="colorIndicator">#B6B6B6</color>
+    <color name="colorLineView">#CFCFCF</color>
+    <color name="colorBackground">#FFF</color>
 </resources>

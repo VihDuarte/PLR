@@ -2,6 +2,7 @@ package com.duarte.victor.plr.view;
 
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -12,12 +13,15 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.duarte.victor.plr.R;
 import com.duarte.victor.plr.interactor.PlrInteractorImpl;
@@ -42,6 +46,12 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
 
     @BindView(R.id.btn_post)
     Button btnPost;
+
+    @BindView(R.id.img_logo)
+    ImageView imgLogo;
+
+    @BindView(R.id.txt_title)
+    TextView txtTitle;
 
     NewPlrPresenter presenter;
 
@@ -69,6 +79,9 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
     @Override
     public void onResume() {
         super.onResume();
+
+        this.getView().getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
+
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         edtPlrMessage.requestFocus();
@@ -83,12 +96,14 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
     public void onPause() {
         super.onPause();
 
+        this.getView().getViewTreeObserver().removeOnGlobalLayoutListener(onGlobalLayoutListener);
+
         View view = getActivity().getCurrentFocus();
+
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
-
 
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
@@ -104,7 +119,8 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                txtCount.setText(String.valueOf(140 - s.length()));
+                txtCount.setText(getString(R.string.create_plr_count_caracteres,
+                        String.valueOf(140 - s.length())));
                 btnPost.setEnabled(s.length() > 0);
             }
 
@@ -175,4 +191,43 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
         btnPost.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.GONE);
     }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO) {
+            imgLogo.setVisibility(View.GONE);
+        } else if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_YES) {
+            imgLogo.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+        private int mPreviousHeight;
+
+        @Override
+        public void onGlobalLayout() {
+            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                imgLogo.setVisibility(View.GONE);
+                txtTitle.setVisibility(View.GONE);
+            } else {
+                int newHeight = getView().getHeight();
+                if (mPreviousHeight != 0) {
+                    if (mPreviousHeight > newHeight) {
+                        // Height decreased: keyboard was shown
+                        imgLogo.setVisibility(View.GONE);
+                        txtTitle.setVisibility(View.GONE);
+                    } else if (mPreviousHeight < newHeight) {
+                        // Height increased: keyboard was hidden
+                        imgLogo.setVisibility(View.VISIBLE);
+                        txtTitle.setVisibility(View.VISIBLE);
+                    } else {
+                        // No change
+                    }
+                }
+                mPreviousHeight = newHeight;
+            }
+        }
+    };
 }

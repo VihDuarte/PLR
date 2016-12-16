@@ -6,6 +6,7 @@ import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import butterknife.Unbinder;
@@ -18,7 +19,7 @@ import java.lang.Override;
 public class NewPlrFragment_ViewBinding<T extends NewPlrFragment> implements Unbinder {
   protected T target;
 
-  private View view2131492987;
+  private View view2131492991;
 
   @UiThread
   public NewPlrFragment_ViewBinding(final T target, View source) {
@@ -30,13 +31,15 @@ public class NewPlrFragment_ViewBinding<T extends NewPlrFragment> implements Unb
     target.txtCount = Utils.findRequiredViewAsType(source, R.id.txt_count, "field 'txtCount'", TextView.class);
     view = Utils.findRequiredView(source, R.id.btn_post, "field 'btnPost' and method 'onBtnPostClick'");
     target.btnPost = Utils.castView(view, R.id.btn_post, "field 'btnPost'", Button.class);
-    view2131492987 = view;
+    view2131492991 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
         target.onBtnPostClick();
       }
     });
+    target.imgLogo = Utils.findRequiredViewAsType(source, R.id.img_logo, "field 'imgLogo'", ImageView.class);
+    target.txtTitle = Utils.findRequiredViewAsType(source, R.id.txt_title, "field 'txtTitle'", TextView.class);
   }
 
   @Override
@@ -49,9 +52,11 @@ public class NewPlrFragment_ViewBinding<T extends NewPlrFragment> implements Unb
     target.edtPlrMessage = null;
     target.txtCount = null;
     target.btnPost = null;
+    target.imgLogo = null;
+    target.txtTitle = null;
 
-    view2131492987.setOnClickListener(null);
-    view2131492987 = null;
+    view2131492991.setOnClickListener(null);
+    view2131492991 = null;
 
     this.target = null;
   }

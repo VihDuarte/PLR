@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.duarte.victor.plr.R;
 import com.duarte.victor.plr.model.Plr;
+import com.duarte.victor.plr.util.DateUtil;
 
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class PlrListAdapter extends RecyclerView.Adapter<PlrListAdapter.ViewHold
 
         holder.txtPlrItemDate.setText(
                 item.getCreated() != null ?
-                        DateFormat.format("dd/MM/yyyy \'às\' hh:mm", item.getCreated()) :
+                        DateUtil.formatTime(item.getCreated()) :
                         context.getResources().getString(R.string.create_plr_now));
     }
 

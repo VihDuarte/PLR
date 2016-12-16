@@ -1,42 +1,34 @@
 [
     {
-        "merged": "/home/victor/Documents/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_menu_black_24dp.png",
-        "source": "/home/victor/Documents/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/ic_menu_black_24dp.png"
+        "merged": "/home/victor/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_menu_black_24dp.png",
+        "source": "/home/victor/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/ic_menu_black_24dp.png"
     },
     {
-        "merged": "/home/victor/Documents/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_clear_white_24dp.png",
-        "source": "/home/victor/Documents/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/ic_clear_white_24dp.png"
+        "merged": "/home/victor/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_search_black_24dp.png",
+        "source": "/home/victor/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/ic_search_black_24dp.png"
     },
     {
-        "merged": "/home/victor/Documents/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_mode_edit_black_24dp.png",
-        "source": "/home/victor/Documents/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/ic_mode_edit_black_24dp.png"
+        "merged": "/home/victor/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_more_vert_black_24dp.png",
+        "source": "/home/victor/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/ic_more_vert_black_24dp.png"
     },
     {
-        "merged": "/home/victor/Documents/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_search_black_24dp.png",
-        "source": "/home/victor/Documents/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/ic_search_black_24dp.png"
+        "merged": "/home/victor/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/logo_publicacoes.png",
+        "source": "/home/victor/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/logo_publicacoes.png"
     },
     {
-        "merged": "/home/victor/Documents/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/logo_publicacoes.png",
-        "source": "/home/victor/Documents/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/logo_publicacoes.png"
+        "merged": "/home/victor/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/logo_feedback.png",
+        "source": "/home/victor/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/logo_feedback.png"
     },
     {
-        "merged": "/home/victor/dev/android/Plr/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_clear_white_24dp.png",
-        "source": "/home/victor/dev/android/Plr/app/src/main/res/drawable-xxxhdpi/ic_clear_white_24dp.png"
+        "merged": "/home/victor/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_clear_white_24dp.png",
+        "source": "/home/victor/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/ic_clear_white_24dp.png"
     },
     {
-        "merged": "/home/victor/Documents/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/logo_feedback.png",
-        "source": "/home/victor/Documents/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/logo_feedback.png"
+        "merged": "/home/victor/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_arrow_back_black_24dp.png",
+        "source": "/home/victor/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/ic_arrow_back_black_24dp.png"
     },
     {
-        "merged": "/home/victor/Documents/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_arrow_back_black_24dp.png",
-        "source": "/home/victor/Documents/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/ic_arrow_back_black_24dp.png"
-    },
-    {
-        "merged": "/home/victor/dev/android/Plr/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_create_white_24dp.png",
-        "source": "/home/victor/dev/android/Plr/app/src/main/res/drawable-xxxhdpi/ic_create_white_24dp.png"
-    },
-    {
-        "merged": "/home/victor/Documents/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_more_vert_black_24dp.png",
-        "source": "/home/victor/Documents/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/ic_more_vert_black_24dp.png"
+        "merged": "/home/victor/dev/android/PLR/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_mode_edit_black_24dp.png",
+        "source": "/home/victor/dev/android/PLR/app/src/main/res/drawable-xxxhdpi/ic_mode_edit_black_24dp.png"
     }
 ]

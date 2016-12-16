@@ -3,19 +3,14 @@
 
     <string name="request_plr_error">Não foi possivel caregar os PLRS</string>
     <string name="refresh_plr_error">Não foi possivel atualizar os PLRS</string>
+    <string name="create_plr_title">Fale para o mundo!</string>
+    <string name="create_plr_count_caracteres">restam %1$s caracteres</string>
     <string name="create_plr_error">Não foi possivel publicar PLR</string>
     <string name="create_plr_success">PLR publicado com sucesso!</string>
-
     <string name="required_field">campo obrigatório</string>
-
     <string name="create_plr_now">now</string>
-
     <string name="delete_plr_error">Não foi possivel remover PLR</string>
-
-
-    <string name="plr_hint">Fico tão plr quando...</string>
-
-    <string name="publish_button">Publicar</string>
+    <string name="publish_button">Desabafar</string>
 
     <string name="ok">OK</string>
     <string name="retry">RETRY</string>

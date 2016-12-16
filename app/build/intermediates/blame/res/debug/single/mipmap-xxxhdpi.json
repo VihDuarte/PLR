@@ -1,10 +1,6 @@
 [
     {
-        "merged": "/home/victor/Documents/dev/android/PLR/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
-        "source": "/home/victor/Documents/dev/android/PLR/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/home/victor/dev/android/Plr/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
-        "source": "/home/victor/dev/android/Plr/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "/home/victor/dev/android/PLR/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
+        "source": "/home/victor/dev/android/PLR/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     }
 ]
