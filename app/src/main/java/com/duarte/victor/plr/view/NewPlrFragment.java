@@ -34,10 +34,7 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewPlrFragment extends Fragment implements NewPlrView {
-    @BindView(R.id.progress)
-    ProgressBar progressBar;
-
+public class NewPlrFragment extends Fragment {
     @BindView(R.id.edt_new_plr)
     EditText edtPlrMessage;
 
@@ -53,7 +50,6 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
     @BindView(R.id.txt_title)
     TextView txtTitle;
 
-    NewPlrPresenter presenter;
 
     public NewPlrFragment() {
         // Required empty public constructor
@@ -64,8 +60,6 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
         super.onCreate(savedInstanceState);
 
         setRetainInstance(true);
-        presenter = new NewPlrPresenter(new PlrInteractorImpl());
-        presenter.setView(this);
     }
 
     @Override
@@ -126,22 +120,8 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
 
             @Override
             public void afterTextChanged(Editable s) {
-
             }
         });
-    }
-
-    @Override
-    public void onSuccess() {
-        edtPlrMessage.setText("");
-
-        Snackbar snackbar = Snackbar
-                .make(getView(), R.string.create_plr_success, Snackbar.LENGTH_LONG)
-                .setAction(R.string.undo, view -> {
-                    presenter.deleteLasPlr();
-                });
-
-        snackbar.show();
     }
 
     @OnClick(R.id.btn_post)
@@ -151,45 +131,7 @@ public class NewPlrFragment extends Fragment implements NewPlrView {
             return;
         }
 
-        presenter.postPlr(edtPlrMessage.getText().toString());
-    }
-
-    @Override
-    public void onError(int message) {
-        AlertDialog alertDialog = new AlertDialog.Builder(getContext())
-                .setMessage(message)
-                .setPositiveButton(R.string.retry, (dialog, which) -> presenter.postPlr(edtPlrMessage.getText().toString()))
-                .setNegativeButton(R.string.ok, (dialog, which) -> {
-                })
-                .setCancelable(false)
-                .show();
-
-        alertDialog.show();
-    }
-
-    @Override
-    public void onDeleteErro(int message) {
-        AlertDialog alertDialog = new AlertDialog.Builder(getContext())
-                .setMessage(message)
-                .setPositiveButton(R.string.retry, (dialog, which) -> presenter.deleteLasPlr())
-                .setNegativeButton(R.string.ok, (dialog, which) -> {
-                })
-                .setCancelable(false)
-                .show();
-
-        alertDialog.show();
-    }
-
-    @Override
-    public void showProgress() {
-        btnPost.setVisibility(View.INVISIBLE);
-        progressBar.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void hideProgress() {
-        btnPost.setVisibility(View.VISIBLE);
-        progressBar.setVisibility(View.GONE);
+        ((MainActivity) getActivity()).addFragment(ConfirmationPlrFragment.newInstance(edtPlrMessage.getText().toString()));
     }
 
     @Override

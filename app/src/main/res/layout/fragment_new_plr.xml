@@ -12,20 +12,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:fitsSystemWindows="true"
         android:layout_marginTop="@dimen/large_margin"
+        android:fitsSystemWindows="true"
         android:src="@drawable/logo_publicacoes" />
 
     <TextView
         android:id="@+id/txt_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/InformationMessage"
         android:layout_below="@id/img_logo"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/medium_margin"
-        android:text="@string/create_plr_title"
-        android:textColor="@color/colorAccent"
-        android:textSize="@dimen/large_text" />
+        android:text="@string/create_plr_title" />
 
     <EditText
         android:id="@+id/edt_new_plr"
@@ -55,13 +51,10 @@
 
     <Button
         android:id="@+id/btn_post"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/btn_publish_background"
+        style="@style/ConfimationButton"
         android:enabled="false"
-        android:text="@string/publish_button"
-        android:textColor="@color/colorBtnText" />
+        android:layout_alignParentBottom="true"
+        android:text="@string/publish_button" />
 
     <ProgressBar
         android:id="@+id/progress"

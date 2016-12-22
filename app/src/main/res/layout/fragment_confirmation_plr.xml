@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin"
+    tools:context="com.duarte.victor.plr.view.ConfirmationPlrFragment">
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/large_margin"
+        android:src="@drawable/logo_feedback" />
+
+    <TextView
+        android:id="@+id/txt_title"
+        style="@style/InformationMessage"
+        android:layout_below="@id/img_logo"
+        android:layout_marginTop="@dimen/large_margin"
+        android:text="@string/confirmation_plr_message" />
+
+    <TextView
+        android:id="@+id/txt_time"
+        style="@style/InformationMessage"
+        android:layout_below="@id/txt_title"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:gravity="center"
+        android:text="10s"
+        android:textSize="72sp" />
+
+    <Button
+        android:id="@+id/btn_post"
+        style="@style/ConfimationButton"
+        android:layout_above="@+id/txt_cancel"
+        android:text="@string/confirmation_plr_ok_button" />
+
+    <TextView
+        android:layout_marginTop="@dimen/medium_margin"
+        android:id="@+id/txt_cancel"
+        android:layout_marginBottom="@dimen/medium_margin"
+        style="@style/InformationMessage"
+        android:layout_alignParentBottom="true"
+        android:text="@string/confirmation_plr_cancel_button" />
+
+</RelativeLayout>

@@ -6,6 +6,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -29,10 +30,7 @@ public class MainActivity extends AppCompatActivity {
         upArrow.setColorFilter(ContextCompat.getColor(this, android.R.color.white), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.container, new PlrListFragment(), null)
-                .commit();
+        addFragment(new ListFragment());
     }
 
     @Override
@@ -42,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    public void addFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.container, fragment, null)
+                .commit();
     }
 
     public void changeFragment(Fragment fragment) {

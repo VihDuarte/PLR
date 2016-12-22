@@ -120,6 +120,10 @@
         "source": "/home/victor/dev/android/PLR/app/src/main/res/layout/activity_main.xml"
     },
     {
+        "merged": "/home/victor/dev/android/PLR/app/build/intermediates/res/merged/debug/layout/fragment_confirmation_plr.xml",
+        "source": "/home/victor/dev/android/PLR/app/src/main/res/layout/fragment_confirmation_plr.xml"
+    },
+    {
         "merged": "/home/victor/dev/android/PLR/app/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
         "source": "/home/victor/dev/android/PLR/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/layout/select_dialog_singlechoice_material.xml"
     },
