@@ -79,7 +79,6 @@ public class PlrListFragment extends Fragment implements PlrListView {
             plrListRecicler.setAdapter(plrListAdapter);
         }
 
-
         swipeRefreshLayout.setOnRefreshListener(() -> presenter.loadPlrs(true));
     }
 

@@ -5,27 +5,20 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.duarte.victor.plr.R;
-import com.duarte.victor.plr.interactor.PlrInteractorImpl;
-import com.duarte.victor.plr.presenter.NewPlrPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -131,7 +124,8 @@ public class NewPlrFragment extends Fragment {
             return;
         }
 
-        ((MainActivity) getActivity()).addFragment(ConfirmationPlrFragment.newInstance(edtPlrMessage.getText().toString()));
+        getActivity().onBackPressed();
+        ((MainActivity) getActivity()).changeFragment(ConfirmationPlrFragment.newInstance(edtPlrMessage.getText().toString()));
     }
 
     @Override

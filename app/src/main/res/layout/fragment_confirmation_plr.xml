@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin"
+    android:background="@color/colorBackground"
     tools:context="com.duarte.victor.plr.view.ConfirmationPlrFragment">
 
     <ImageView
@@ -36,11 +37,20 @@
         android:text="@string/confirmation_plr_ok_button" />
 
     <TextView
-        android:layout_marginTop="@dimen/medium_margin"
         android:id="@+id/txt_cancel"
-        android:layout_marginBottom="@dimen/medium_margin"
         style="@style/InformationMessage"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/medium_margin"
         android:text="@string/confirmation_plr_cancel_button" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txt_cancel"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/short_margin"
+        android:visibility="gone" />
 
 </RelativeLayout>

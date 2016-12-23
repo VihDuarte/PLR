@@ -706,7 +706,7 @@ int id design_menu_item_text 0x7f0c0076
 int id design_navigation_view 0x7f0c0075
 int id disableHome 0x7f0c000f
 int id edit_query 0x7f0c0061
-int id edt_new_plr 0x7f0c007f
+int id edt_new_plr 0x7f0c0080
 int id end 0x7f0c0027
 int id end_padder 0x7f0c0092
 int id enterAlways 0x7f0c0016
@@ -743,7 +743,7 @@ int id normal 0x7f0c000d
 int id parallax 0x7f0c002d
 int id parentPanel 0x7f0c004a
 int id pin 0x7f0c002e
-int id progress 0x7f0c0082
+int id progress 0x7f0c007f
 int id progress_circular 0x7f0c0007
 int id progress_horizontal 0x7f0c0008
 int id radio 0x7f0c0058
@@ -795,14 +795,14 @@ int id top 0x7f0c002c
 int id topPanel 0x7f0c004b
 int id touch_outside 0x7f0c0070
 int id txt_cancel 0x7f0c007e
-int id txt_count 0x7f0c0081
+int id txt_count 0x7f0c0082
 int id txt_plr_item_date 0x7f0c0093
 int id txt_plr_item_text 0x7f0c0094
 int id txt_time 0x7f0c007c
 int id txt_title 0x7f0c007b
 int id up 0x7f0c000a
 int id useLogo 0x7f0c0015
-int id view_line 0x7f0c0080
+int id view_line 0x7f0c0081
 int id view_offset_helper 0x7f0c000b
 int id withText 0x7f0c003b
 int id wrap_content 0x7f0c0021

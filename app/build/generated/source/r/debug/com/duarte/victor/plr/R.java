@@ -2664,7 +2664,7 @@ containing a value of this type.
         public static final int design_navigation_view=0x7f0c0075;
         public static final int disableHome=0x7f0c000f;
         public static final int edit_query=0x7f0c0061;
-        public static final int edt_new_plr=0x7f0c007f;
+        public static final int edt_new_plr=0x7f0c0080;
         public static final int end=0x7f0c0027;
         public static final int end_padder=0x7f0c0092;
         public static final int enterAlways=0x7f0c0016;
@@ -2701,7 +2701,7 @@ containing a value of this type.
         public static final int parallax=0x7f0c002d;
         public static final int parentPanel=0x7f0c004a;
         public static final int pin=0x7f0c002e;
-        public static final int progress=0x7f0c0082;
+        public static final int progress=0x7f0c007f;
         public static final int progress_circular=0x7f0c0007;
         public static final int progress_horizontal=0x7f0c0008;
         public static final int radio=0x7f0c0058;
@@ -2753,14 +2753,14 @@ containing a value of this type.
         public static final int topPanel=0x7f0c004b;
         public static final int touch_outside=0x7f0c0070;
         public static final int txt_cancel=0x7f0c007e;
-        public static final int txt_count=0x7f0c0081;
+        public static final int txt_count=0x7f0c0082;
         public static final int txt_plr_item_date=0x7f0c0093;
         public static final int txt_plr_item_text=0x7f0c0094;
         public static final int txt_time=0x7f0c007c;
         public static final int txt_title=0x7f0c007b;
         public static final int up=0x7f0c000a;
         public static final int useLogo=0x7f0c0015;
-        public static final int view_line=0x7f0c0080;
+        public static final int view_line=0x7f0c0081;
         public static final int view_offset_helper=0x7f0c000b;
         public static final int withText=0x7f0c003b;
         public static final int wrap_content=0x7f0c0021;

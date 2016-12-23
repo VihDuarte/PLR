@@ -1,7 +1,9 @@
 package com.duarte.victor.plr.view;
 
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -9,33 +11,39 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.duarte.victor.plr.R;
 import com.duarte.victor.plr.interactor.PlrInteractorImpl;
-import com.duarte.victor.plr.presenter.NewPlrPresenter;
+import com.duarte.victor.plr.presenter.ConfirmationPlrPresenter;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static com.duarte.victor.plr.R.id.container;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ConfirmationPlrFragment extends Fragment implements NewPlrView {
+public class ConfirmationPlrFragment extends Fragment implements ConfirmationPlrView {
     private static String ARG_CREATOR = "MESSAGE";
 
     @BindView(R.id.progress)
     ProgressBar progressBar;
 
+    @BindView(R.id.txt_time)
+    TextView txtTime;
+
     @BindView(R.id.btn_post)
     Button btnPost;
 
-    NewPlrPresenter presenter;
+    ConfirmationPlrPresenter presenter;
 
     String plrMessage;
+
+    CountDownTimer countDownTimer;
 
 
     public static ConfirmationPlrFragment newInstance(String message) {
@@ -53,6 +61,14 @@ public class ConfirmationPlrFragment extends Fragment implements NewPlrView {
     }
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_confirmation_plr, container, false);
+        ButterKnife.bind(this, view);
+        return view;
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -60,31 +76,47 @@ public class ConfirmationPlrFragment extends Fragment implements NewPlrView {
             plrMessage = getArguments().getString(ARG_CREATOR);
         }
 
+
+        View view = getActivity().getCurrentFocus();
+
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+
         setRetainInstance(true);
 
-        presenter = new NewPlrPresenter(new PlrInteractorImpl());
+        presenter = new ConfirmationPlrPresenter(new PlrInteractorImpl());
         presenter.setView(this);
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_confirmation_plr, container, false);
+        countDownTimer = new CountDownTimer(11000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                txtTime.setText(millisUntilFinished / 1000 + "s");
+            }
+
+            public void onFinish() {
+                presenter.postPlr(plrMessage);
+            }
+        };
+        countDownTimer.start();
     }
 
     @OnClick(R.id.btn_post)
     public void onBtnPostClick() {
         presenter.postPlr(plrMessage);
+        countDownTimer.cancel();
     }
 
     @OnClick(R.id.txt_cancel)
     public void onCancelClick() {
-
+        countDownTimer.cancel();
+        getActivity().onBackPressed();
     }
 
     @Override
     public void onSuccess() {
+        getActivity().onBackPressed();
+
         Snackbar snackbar = Snackbar
                 .make(getView(), R.string.create_plr_success, Snackbar.LENGTH_LONG)
                 .setAction(R.string.undo, view -> {
@@ -122,13 +154,13 @@ public class ConfirmationPlrFragment extends Fragment implements NewPlrView {
 
     @Override
     public void showProgress() {
-        btnPost.setVisibility(View.INVISIBLE);
+        btnPost.setEnabled(false);
         progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgress() {
-        btnPost.setVisibility(View.VISIBLE);
+        btnPost.setEnabled(true);
         progressBar.setVisibility(View.GONE);
     }
 }

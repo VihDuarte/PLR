@@ -6,6 +6,7 @@ import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
 import butterknife.internal.Utils;
@@ -26,6 +27,7 @@ public class ConfirmationPlrFragment_ViewBinding<T extends ConfirmationPlrFragme
 
     View view;
     target.progressBar = Utils.findRequiredViewAsType(source, R.id.progress, "field 'progressBar'", ProgressBar.class);
+    target.txtTime = Utils.findRequiredViewAsType(source, R.id.txt_time, "field 'txtTime'", TextView.class);
     view = Utils.findRequiredView(source, R.id.btn_post, "field 'btnPost' and method 'onBtnPostClick'");
     target.btnPost = Utils.castView(view, R.id.btn_post, "field 'btnPost'", Button.class);
     view2131492989 = view;
@@ -52,6 +54,7 @@ public class ConfirmationPlrFragment_ViewBinding<T extends ConfirmationPlrFragme
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
 
     target.progressBar = null;
+    target.txtTime = null;
     target.btnPost = null;
 
     view2131492989.setOnClickListener(null);

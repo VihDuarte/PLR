@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         upArrow.setColorFilter(ContextCompat.getColor(this, android.R.color.white), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
-        addFragment(new ListFragment());
+        addFragment(new PlrListFragment());
     }
 
     @Override
