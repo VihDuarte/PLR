@@ -40,8 +40,7 @@
         android:id="@+id/txt_cancel"
         style="@style/InformationMessage"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/medium_margin"
-        android:layout_marginTop="@dimen/medium_margin"
+        android:padding="@dimen/medium_margin"
         android:text="@string/confirmation_plr_cancel_button" />
 
     <ProgressBar

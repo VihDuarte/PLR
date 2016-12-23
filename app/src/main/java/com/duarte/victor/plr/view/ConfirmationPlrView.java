@@ -5,5 +5,5 @@ public interface ConfirmationPlrView extends BaseView {
 
     void onError(int message);
 
-    void onDeleteErro(int message);
+    void onDeleteError(int message);
 }

@@ -20,7 +20,6 @@ public class Plr {
     @Expose
     private Date created;
 
-
     public String getId() {
         return id;
     }

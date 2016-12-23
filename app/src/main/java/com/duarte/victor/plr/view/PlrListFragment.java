@@ -83,6 +83,13 @@ public class PlrListFragment extends Fragment implements PlrListView {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        swipeRefreshLayout.setOnRefreshListener(() -> presenter.loadPlrs(true));
+    }
+
+    @Override
     public void addItems(List<Plr> items) {
         if (plrListAdapter == null) {
             plrList = (ArrayList<Plr>) items;

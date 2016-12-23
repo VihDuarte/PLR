@@ -45,7 +45,6 @@ public class ConfirmationPlrFragment extends Fragment implements ConfirmationPlr
 
     CountDownTimer countDownTimer;
 
-
     public static ConfirmationPlrFragment newInstance(String message) {
         ConfirmationPlrFragment confirmationPlrFragment = new ConfirmationPlrFragment();
 
@@ -101,6 +100,19 @@ public class ConfirmationPlrFragment extends Fragment implements ConfirmationPlr
         countDownTimer.start();
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        countDownTimer.cancel();
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
     @OnClick(R.id.btn_post)
     public void onBtnPostClick() {
         presenter.postPlr(plrMessage);
@@ -140,7 +152,7 @@ public class ConfirmationPlrFragment extends Fragment implements ConfirmationPlr
     }
 
     @Override
-    public void onDeleteErro(int message) {
+    public void onDeleteError(int message) {
         AlertDialog alertDialog = new AlertDialog.Builder(getContext())
                 .setMessage(message)
                 .setPositiveButton(R.string.retry, (dialog, which) -> presenter.deleteLasPlr())

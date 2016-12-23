@@ -9,6 +9,5 @@ public interface PlrListView extends BaseView {
 
     void updateItems(List<Plr> items);
 
-
     void showError(int message, boolean isRefresh);
 }

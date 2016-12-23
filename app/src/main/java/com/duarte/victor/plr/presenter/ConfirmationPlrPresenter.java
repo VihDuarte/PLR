@@ -21,7 +21,6 @@ public class ConfirmationPlrPresenter {
         this.view = view;
     }
 
-
     public void postPlr(String text) {
         view.showProgress();
 
@@ -50,11 +49,11 @@ public class ConfirmationPlrPresenter {
                 .subscribe(result -> {
                             view.hideProgress();
                             if (result != 1) {
-                                view.onDeleteErro(R.string.delete_plr_error);
+                                view.onDeleteError(R.string.delete_plr_error);
                             }
                         },
                         error -> {
-                            view.onDeleteErro(R.string.delete_plr_error);
+                            view.onDeleteError(R.string.delete_plr_error);
                             view.hideProgress();
                         });
     }
