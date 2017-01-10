@@ -30,33 +30,38 @@ public class MainActivity extends AppCompatActivity {
         upArrow.setColorFilter(ContextCompat.getColor(this, android.R.color.white), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
-        addFragment(new PlrListFragment());
+        addFragment(new PlrListFragment(), PlrListFragment.TAG);
     }
 
     @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().getBackStackEntryCount() != 0) {
             getSupportFragmentManager().popBackStack();
+
+            PlrListFragment plrListFragment = (PlrListFragment) getSupportFragmentManager().findFragmentByTag(PlrListFragment.TAG);
+            if (plrListFragment != null && plrListFragment.isVisible()) {
+                plrListFragment.refresh();
+            }
         } else {
             super.onBackPressed();
         }
     }
 
-    public void addFragment(Fragment fragment) {
+    public void addFragment(Fragment fragment, String tag) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.container, fragment, null)
+                .add(R.id.container, fragment, tag)
                 .commit();
     }
 
-    public void changeFragment(Fragment fragment) {
+    public void changeFragment(Fragment fragment, String tag) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .setCustomAnimations(R.anim.slide_up,
                         R.anim.slide_down,
                         R.anim.slide_up,
                         R.anim.slide_down)
-                .add(R.id.container, fragment)
+                .add(R.id.container, fragment, tag)
                 .addToBackStack(null)
                 .commitAllowingStateLoss();
     }

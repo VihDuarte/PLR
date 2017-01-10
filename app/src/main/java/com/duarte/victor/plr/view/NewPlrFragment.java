@@ -28,6 +28,8 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class NewPlrFragment extends Fragment {
+    public final static String TAG = "NewPlrFragment";
+
     @BindView(R.id.edt_new_plr)
     EditText edtPlrMessage;
 
@@ -125,7 +127,7 @@ public class NewPlrFragment extends Fragment {
         }
 
         getActivity().onBackPressed();
-        ((MainActivity) getActivity()).changeFragment(ConfirmationPlrFragment.newInstance(edtPlrMessage.getText().toString()));
+        ((MainActivity) getActivity()).changeFragment(ConfirmationPlrFragment.newInstance(edtPlrMessage.getText().toString()), ConfirmationPlrFragment.TAG);
     }
 
     @Override

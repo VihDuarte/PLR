@@ -28,6 +28,8 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class ConfirmationPlrFragment extends Fragment implements ConfirmationPlrView {
+    public final static String TAG = "ConfirmationPlrFragment";
+
     private static String ARG_CREATOR = "MESSAGE";
 
     @BindView(R.id.progress)

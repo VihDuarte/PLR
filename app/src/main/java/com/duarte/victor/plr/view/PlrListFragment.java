@@ -12,8 +12,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.duarte.victor.plr.R;
 import com.duarte.victor.plr.interactor.PlrInteractorImpl;
@@ -32,8 +30,10 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class PlrListFragment extends Fragment implements PlrListView {
+    public final static String TAG = "PlrListFragment";
+
     @BindView(R.id.recycler_plr_list)
-    RecyclerView plrListRecicler;
+    RecyclerView plrListRecycler;
 
     @BindView(R.id.swiperefresh)
     SwipeRefreshLayout swipeRefreshLayout;
@@ -76,7 +76,7 @@ public class PlrListFragment extends Fragment implements PlrListView {
             presenter.loadPlrs(false);
         } else {
             plrListAdapter = new PlrListAdapter(getContext(), plrList);
-            plrListRecicler.setAdapter(plrListAdapter);
+            plrListRecycler.setAdapter(plrListAdapter);
         }
 
         swipeRefreshLayout.setOnRefreshListener(() -> presenter.loadPlrs(true));
@@ -85,8 +85,12 @@ public class PlrListFragment extends Fragment implements PlrListView {
     @Override
     public void onResume() {
         super.onResume();
-
         swipeRefreshLayout.setOnRefreshListener(() -> presenter.loadPlrs(true));
+    }
+
+    @Override
+    public void refresh() {
+        presenter.loadPlrs(true);
     }
 
     @Override
@@ -94,7 +98,7 @@ public class PlrListFragment extends Fragment implements PlrListView {
         if (plrListAdapter == null) {
             plrList = (ArrayList<Plr>) items;
             plrListAdapter = new PlrListAdapter(getContext(), items);
-            plrListRecicler.setAdapter(plrListAdapter);
+            plrListRecycler.setAdapter(plrListAdapter);
         } else {
             plrList.addAll(items);
             plrListAdapter.notifyDataSetChanged();
@@ -113,7 +117,7 @@ public class PlrListFragment extends Fragment implements PlrListView {
     @Override
     public void showError(int message, boolean isRefresh) {
         Snackbar snackbar = Snackbar
-                .make(getView(), message, Snackbar.LENGTH_SHORT)
+                .make(getView(), message, Snackbar.LENGTH_INDEFINITE)
                 .setAction(R.string.retry, view -> {
                     presenter.loadPlrs(isRefresh);
                 });
@@ -134,10 +138,10 @@ public class PlrListFragment extends Fragment implements PlrListView {
     private void initRecyclerView() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
 
-        plrListRecicler.setHasFixedSize(true);
-        plrListRecicler.setLayoutManager(layoutManager);
+        plrListRecycler.setHasFixedSize(true);
+        plrListRecycler.setLayoutManager(layoutManager);
 
-        plrListRecicler.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        plrListRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -163,6 +167,6 @@ public class PlrListFragment extends Fragment implements PlrListView {
 
     @OnClick(R.id.fab_new)
     public void openNewPlrFragment() {
-        ((MainActivity) getActivity()).changeFragment(new NewPlrFragment());
+        ((MainActivity) getActivity()).changeFragment(new NewPlrFragment(), NewPlrFragment.TAG);
     }
 }

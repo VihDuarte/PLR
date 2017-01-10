@@ -47,12 +47,13 @@
         android:layout_alignParentRight="true"
         android:layout_below="@id/edt_new_plr"
         android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginBottom="@dimen/medium_margin"
         android:text="restam 140 caracteres" />
 
     <Button
         android:id="@+id/btn_post"
         style="@style/ConfimationButton"
         android:enabled="false"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/txt_count"
         android:text="@string/publish_button" />
 </RelativeLayout>

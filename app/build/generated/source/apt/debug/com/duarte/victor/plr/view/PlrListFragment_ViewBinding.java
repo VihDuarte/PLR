@@ -24,7 +24,7 @@ public class PlrListFragment_ViewBinding<T extends PlrListFragment> implements U
     this.target = target;
 
     View view;
-    target.plrListRecicler = Utils.findRequiredViewAsType(source, R.id.recycler_plr_list, "field 'plrListRecicler'", RecyclerView.class);
+    target.plrListRecycler = Utils.findRequiredViewAsType(source, R.id.recycler_plr_list, "field 'plrListRecycler'", RecyclerView.class);
     target.swipeRefreshLayout = Utils.findRequiredViewAsType(source, R.id.swiperefresh, "field 'swipeRefreshLayout'", SwipeRefreshLayout.class);
     view = Utils.findRequiredView(source, R.id.fab_new, "field 'fabNew' and method 'openNewPlrFragment'");
     target.fabNew = Utils.castView(view, R.id.fab_new, "field 'fabNew'", FloatingActionButton.class);
@@ -43,7 +43,7 @@ public class PlrListFragment_ViewBinding<T extends PlrListFragment> implements U
     T target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
 
-    target.plrListRecicler = null;
+    target.plrListRecycler = null;
     target.swipeRefreshLayout = null;
     target.fabNew = null;
 
